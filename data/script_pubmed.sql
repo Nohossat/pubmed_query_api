@@ -1,13 +1,12 @@
-/* pour récupérer les abstracts des auteurs ayant au moins publiés deux fois  */
+/* pour récupérer les abstracts des auteurs ayant été publié au moins deux fois  */
 SELECT author.author, abstract 
 FROM article 
 INNER JOIN author ON article.author_id = author.rowid
 WHERE author_id in (SELECT author_id
                     FROM article
                     GROUP BY author_id
-                    HAVING count(author_id) > 1)
-ORDER BY author_id DESC
-LIMIT 10;
+                    HAVING count(author_id) > 1) AND abstract IS NOT NULL
+ORDER BY author_id DESC;
 
 /* pour récupérer un classement des journaux scientifiques par rapport aux nombres d'articles publiés */
 SELECT journal, count(journal_id) as count_journal

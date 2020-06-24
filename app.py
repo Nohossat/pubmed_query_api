@@ -8,7 +8,7 @@ import datetime
 # get pmcids from disk or fetch them again
 def get_pmcids_list() :
     try :
-        pmcids = pd.read_csv('pmcids.csv').values
+        pmcids = pd.read_csv('data/pmcids.csv').values
     except:
         search = "gene"
         url_query = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term={search}&sort=relevance&retmode=json&retmax=1000"
@@ -23,7 +23,7 @@ def get_pmcids_list() :
 
         # save them in a CSV format
         pmcids = pd.DataFrame(pmcids, columns=['PMCID'])
-        pmcids.to_csv('pmcids.csv', index=False)
+        pmcids.to_csv('data/pmcids.csv', index=False)
 
         pmcids = pmcids.values
 
@@ -113,7 +113,7 @@ def get_article_data(pmcids):
     df = pd.DataFrame(articles, columns=['pmcid', 'title', 'abstract', 'publication_date', 'keywords', 'journal', 'doi', 'author'])
 
     # save to csv 
-    df.to_csv('articles_pubmed_1.csv', index=False)
+    df.to_csv('data/articles_pubmed_1.csv', index=False)
 
     return df
 
