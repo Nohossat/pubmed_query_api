@@ -18,7 +18,7 @@ Le code associé est le fichier **normalize_data.py**.
 
 ## Troisième étape : Requêtes sur la base de données
 
-- Récupération des extraits des auteurs ayant au moins publié deux fois.
+- Récupération des extraits des auteurs ayant été publié au moins deux fois.
 - Réaliser un classement des journaux scientifiques par rapport au nombre de publications
 - Récupération du nombre d'articles publiés par an
 
