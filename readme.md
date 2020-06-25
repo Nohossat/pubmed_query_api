@@ -2,6 +2,17 @@
 
 We want to have a first introduction to the PubMed API and make some SQL queries on the collected data turned into tables.
 
+## Getting Started
+
+For the following code to work, the sqlite3 module and MongoDB Server must be installed.
+
+Then, inside the **/src** folder: 
+
+```python
+python -m venv venv/
+pip install -r requirements.txt
+```
+
 ## First Step : Consume PubMed API to fetch data
 
 We fetch 1000 articles dealing with genetics on PubMed website.
@@ -12,7 +23,9 @@ We needed 2 steps to get the data :
 
 The code consuming the API can be found in **src/app.py**.
 
-## Second Step : Data normalization
+## Second Step : Data normalization and save to databases
+
+### Relational Database
 
 With Pandas library, we separated the data collected to create our database **data/pubmed.db**.
 
@@ -22,9 +35,16 @@ Below the physical model for our database.
 
 ![sql_model](img/model.png)
 
+### Document-Based Database
+
+We prepare the data (convert data from CSV to JSON) to save into a MongoDB database.
+
+We will only use one collection : article.
+
+
 ## Third step : SQL queries
 
-We decided to extract the following data:
+From the SQL database, we decided to extract the following data:
     - abstracts by authors being published more than twice
     - journal ranking by number of publications
     - number of articles published by year
