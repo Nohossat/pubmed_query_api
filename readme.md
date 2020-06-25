@@ -4,7 +4,7 @@ We want to have a first introduction to the PubMed API and make some SQL queries
 
 ## Getting Started
 
-For the following code to work, the sqlite3 module and MongoDB Server must be installed.
+For the following code to work, the **sqlite3** module and **MongoDB Server** must be installed on the machine.
 
 Then, inside the **/src** folder: 
 
