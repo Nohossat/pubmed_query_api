@@ -2,6 +2,8 @@
 SELECT author.author, abstract 
 FROM article 
 INNER JOIN author ON article.author_id = author.rowid
+GROUP BY author_id 
+HAVING count(author_id) > 1 AND abstract IS NOT NULL
 WHERE author_id in (SELECT author_id
                     FROM article
                     GROUP BY author_id
