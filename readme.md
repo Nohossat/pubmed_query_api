@@ -1,7 +1,5 @@
 # SQLITE Mini Project
 
-L'objectif de ce TP est d'aborder l'API PubMed et de réaliser des requêtes SQL complexes sur les données récupérées.
-
 We want to have a first introduction to the PubMed API and make some SQL queries on the collected data turned into tables.
 
 ## First Step : Consume PubMed API to fetch data
