@@ -152,3 +152,5 @@ create_connection_sql('../data/pubmed.db', tables)
 df_nosql = normalize_data_no_sql(df)
 create_connection_mongo(df_nosql)
 
+# do look up to get the same results in mongodb
+
