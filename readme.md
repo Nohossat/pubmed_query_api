@@ -9,7 +9,9 @@ For the following code to work, the **sqlite3** module and **MongoDB Server** mu
 Then, inside the **/src** folder: 
 
 ```python
-python -m venv venv/
+python -m venv venv/ 
+source /venv/bin/activate # OSX - bash/zsh
+.\venv\Scripts\activate # Windows - Powershell
 pip install -r requirements.txt
 ```
 

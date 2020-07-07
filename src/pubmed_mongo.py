@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import pprint
 
-db = MongoClient().pubmed
+article = MongoClient().pubmed.article
 
 # abstracts by authors being published more than twice
 print("Extraits des auteurs ayant publié au moins 2 fois")
@@ -12,7 +12,7 @@ pipeline_abstracts = [
     {"$limit" : 2}
 ]
 
-pprint.pprint(list(db.article.aggregate(pipeline_abstracts)))
+pprint.pprint(list(article.aggregate(pipeline_abstracts)))
 
 # journal ranking by number of publications
 
@@ -23,7 +23,7 @@ pipeline_journal = [
     {"$sort": {"numPublications" : -1 }}
 ]
 
-pprint.pprint(list(db.article.aggregate(pipeline_journal)))
+pprint.pprint(list(article.aggregate(pipeline_journal)))
 
 # number of articles published by year
 
@@ -34,5 +34,5 @@ pipeline_year = [
 ]
 
 print("Nombre de publications par an")
-pprint.pprint(list(db.article.aggregate(pipeline_year)))
+pprint.pprint(list(article.aggregate(pipeline_year)))
 

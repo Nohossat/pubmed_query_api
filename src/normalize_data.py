@@ -133,6 +133,7 @@ def create_connection_mongo(df) :
 
   # prepare json
   df_json = df.apply(lambda x: json.loads(x.to_json()), axis=1)
+  
 
   def normalize_date(json_str):
     if json_str['publication_date'] is not None:

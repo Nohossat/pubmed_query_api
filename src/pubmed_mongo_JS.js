@@ -4,17 +4,17 @@ use pubmed;
 db.article.aggregate([
     {
         $group : {
-            _id : { author : "$author"}, 
+            _id : { author : "$author" }, 
             numPublications : { $sum : 1 },
-            titles : {$push: "$title"},
-            abstracts: { $push: "$abstract" } 
+            titles : { $push: "$title" },
+            abstracts : { $push: "$abstract" } 
         }
     }, {
         $match : {
-            "numPublications" : { $gt : 1 }
+            numPublications : { $gt : 1 }
         }
     },{
-        $sort : { "numPublications"  : 1 }
+        $sort : { "numPublications" : 1 }
     }, {
         $limit : 5
     }
